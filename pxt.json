@@ -1,0 +1,23 @@
+{
+    "name": "WS2_B1_CountingDown",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "pxt-kitronik-stopbit": "github:kitronikltd/pxt-kitronik-stopbit#3b6c37648360cbf4a07d79e21e65705853791b9c",
+        "microphone": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "main.py"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "pyprj"
+}
