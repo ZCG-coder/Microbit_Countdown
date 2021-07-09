@@ -1,48 +1,17 @@
-input.onButtonPressed(Button.A, function on_button_pressed_a() {
-    basic.showLeds(`
-        . . # . .
-        . . # . .
-        . . # . .
-        . . . . .
-        . . # . .
-        `)
-    basic.pause(5000)
-    basic.showLeds(`
-        . . # . .
-        . # # # .
-        # # # # #
-        . . # . .
-        . . # . .
-        `)
-    Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Red, Kitronik_STOPbit.DisplayLights.Off)
-    Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Green, Kitronik_STOPbit.DisplayLights.On)
-    basic.pause(5000)
-    for (let index = 0; index < 5; index++) {
-        Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Green, Kitronik_STOPbit.DisplayLights.Off)
-        basic.pause(500)
-        Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Green, Kitronik_STOPbit.DisplayLights.On)
-        basic.pause(500)
-    }
-    basic.showLeds(`
-        # . . . #
-        . # . # .
-        . . # . .
-        . # . # .
-        # . . . #
-        `)
-    Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Green, Kitronik_STOPbit.DisplayLights.Off)
-    Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Red, Kitronik_STOPbit.DisplayLights.On)
-})
-function countDown(sec: number) {
-    for (let index2 = 0; index2 < sec; index2++) {
-        sec -= 1
-        basic.showNumber(sec)
+function count_down(seconds: number = 0) {
+    seconds += 1
+    for (let _ = 0; _ < seconds + 1; _++) {
+        seconds += 0 - 1
+        basic.showNumber(seconds)
         basic.pause(1000)
     }
 }
 
-let sec = 0
-basic.showString("HI")
-Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Green, Kitronik_STOPbit.DisplayLights.Off)
-Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Red, Kitronik_STOPbit.DisplayLights.On)
-countDown(10)
+basic.forever(function on_forever() {
+    Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Red, Kitronik_STOPbit.DisplayLights.On)
+    count_down(3)
+    Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Red, Kitronik_STOPbit.DisplayLights.Off)
+    Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Green, Kitronik_STOPbit.DisplayLights.On)
+    count_down(3)
+    Kitronik_STOPbit.trafficLightLED(Kitronik_STOPbit.LightColours.Green, Kitronik_STOPbit.DisplayLights.Off)
+})
