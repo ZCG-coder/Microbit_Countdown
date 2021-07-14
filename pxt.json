@@ -1,5 +1,5 @@
 {
-    "name": "WS2_B1_CountingDown",
+    "name": "CountDown",
     "description": "",
     "dependencies": {
         "core": "*",
